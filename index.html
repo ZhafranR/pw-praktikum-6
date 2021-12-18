@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+        
+        table {
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        input[type=text], select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type=button] {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .form_div {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 style="text-align: center;">Zhafran Ramadhan 105219024</h2>
+
+    <table>
+        <tr>
+            <th>Kategori</th>
+            <th>Abodemen</th>
+            <th>Tarif per-KWH</th>
+            <th>Pajak</th>
+        </tr>
+        <tr>
+            <td>Sosial</td>
+            <td>10,000</td>
+            <td>300</td>
+            <td>0%</td>
+        </tr>
+        <tr>
+            <td>Rumah</td>
+            <td>30,000</td>
+            <td>500</td>
+            <td>10%</td>
+        </tr>
+        <tr>
+            <td>Apartemen</td>
+            <td>50,000</td>
+            <td>750</td>
+            <td>15%</td>
+        </tr>
+        <tr>
+            <td>Industri</td>
+            <td>75,000</td>
+            <td>1,000</td>
+            <td>20%</td>
+        </tr>
+        <tr>
+            <td>Villa</td>
+            <td>100,000</td>
+            <td>1,250</td>
+            <td>25%</td>
+        </tr>
+    </table>
+
+    <h2 style="text-align: center;">Input</h2>
+    <div class='form_div'>
+        <form id='myForm'>
+          <label for="nama_pelanggan">Nama</label>
+          <input type="text" id="nama_pelanggan" name="  nama_pelanggan" placeholder="Nama Anda...">
+          
+          <label for="kategori_pelanggan">Kategori</label>
+          <select id="kategori_pelanggan" name="kategori_pelanggan"> 
+            <option value="Sosial">Sosial</option>
+            <option value="Rumah">Rumah</option>
+            <option value="Apartemen">Apartemen</option>
+            <option value="Industri">Industri</option>
+            <option value="Villa">Villa</option>
+          </select>
+
+          <label for="hari_pelanggan">Banyak Hari Pemakaian</label>
+          <input type="text" id="hari_pelanggan" name="hari_pelanggan" placeholder="1 Sampai 30..."> 
+        
+          <input type="button" value="Submit" onclick="getData()">
+        </form>
+      </div>
+
+      <h2 style="text-align: center;">Tagihan Listrik</h2>
+      <table id="Tagihan-Listrik">
+        <tr>
+            <th>Nama Pelanggan</th>
+            <th>Kategori</th>
+            <th>Jumlah Pemakian</th>
+        </tr>
+      </table>
+
+      <h2 style="text-align: center;">Rincian Tagihan</h2>
+      <table id="Rincian-Tagihan">
+        <tr>
+            <th>Jumlah</th>
+            <th>Tarif/KWH</th>
+            <th>Abodemen</th>
+            <th>Sub Total</th>
+        </tr>
+      </table>
+
+      <table id="Total">
+        <tr>
+            <th>Sub Total</th>
+            <th>Pajak</th>
+            <th>Bayar</th>
+        </tr>
+      </table>
+
+      <script>
+          function getData(){
+            var nama = document.getElementById("myForm").elements[0].value;
+            var kategori = document.getElementById("myForm").elements[1].value;
+            var hari = document.getElementById("myForm").elements[2].value;
+            hari = parseInt(hari);
+            
+            if((hari<1)||(hari>30)){
+                return alert('Jumlah hari tidak valid');
+            }
+
+            if((nama=='')||(hari=='')){
+                return alert('fields nama_fields harus diisi!');
+            }
+
+            var abodemen, pajak, tarifKWH;
+            if(kategori=="Sosial"){
+                abodemen = 10000;
+                pajak = 0;
+                tarifKWH = 300;
+            }
+            else if(kategori=="Rumah"){
+                abodemen = 30000;
+                pajak = 0.1;
+                tarifKWH = 500;
+            }
+            else if(kategori=="Apartemen"){
+                abodemen = 50000;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+                pajak = 0.15;
+                tarifKWH = 750;
+            }
+            else if(kategori=="industri"){
+                abodemen = 75000;
+                pajak = 0.2;
+                tarifKWH = 1000;
+            }
+            else if(kategori=="Villa"){
+                abodemen = 100000;
+                pajak = 0.25;
+                tarifKWH = 1250;
+            } 
+
+            let tagihan_listrik = [nama, kategori, hari];
+            var node_tr = document.createElement("TR");
+            for(var i=0;i<3;i++){
+                var node_td = document.createElement("TD");
+                var textnode = document.createTextNode(tagihan_listrik[i]);   
+                
+                node_td.appendChild(textnode);
+                node_tr.appendChild(node_td);
+            } 
+            document.getElementById("Tagihan-Listrik").appendChild(node_tr);
+            
+            for(var i=1; i<=hari; i++){
+                var node_tr = document.createElement("TR");
+                let rincian = [i, tarifKWH*i, abodemen, (tarifKWH*i)+abodemen];
+                for(var j=0; j<4; j++){
+                    var node_td = document.createElement("TD");
+                    var textnode = document.createTextNode(rincian[j]);   
+                    
+                    node_td.appendChild(textnode);
+                    node_tr.appendChild(node_td);
+                    }
+                document.getElementById("Rincian-Tagihan").appendChild(node_tr);
+            }
+
+            let total = [(hari*tarifKWH)+abodemen, ((hari*tarifKWH)+abodemen)*pajak, ((hari*tarifKWH)+abodemen)+(((hari*tarifKWH)+abodemen)*pajak)];
+            var node_tr = document.createElement("TR");
+            for(var i=0;i<3;i++){
+                var node_td = document.createElement("TD");
+                var textnode = document.createTextNode(total[i]);   
+                
+                node_td.appendChild(textnode);
+                node_tr.appendChild(node_td);
+            } 
+            document.getElementById("Total").appendChild(node_tr);
+            
+          }
+
+
+      </script>
+</body>
+</html>
